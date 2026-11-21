@@ -1,0 +1,32 @@
+{
+  "name": "opencode-dotagents",
+  "version": "0.1.0",
+  "description": "OpenCode adapter for the .agents/ directory standard — loads .agents/mcp.json and .agents/AGENTS.md so one config works across every AI coding tool.",
+  "type": "module",
+  "main": "./dotagents.js",
+  "exports": { ".": "./dotagents.js" },
+  "files": ["dotagents.js"],
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "agents",
+    "dotagents",
+    "mcp",
+    "agents-md",
+    "claude-code",
+    "cursor",
+    "codex",
+    "gemini"
+  ],
+  "license": "MIT",
+  "author": "xun159",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xun159/opencode-dotagents.git"
+  },
+  "homepage": "https://dotagents.io",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/"
+  }
+}

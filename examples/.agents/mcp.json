@@ -1,0 +1,23 @@
+{
+  // Example ~/.agents/mcp.json or ./.agents/mcp.json
+  // Same file works for Claude Code, Cursor, Codex, Gemini, and OpenCode.
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "~/Documents"]
+    },
+    "linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/sse"
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}" }
+    }
+  }
+}
