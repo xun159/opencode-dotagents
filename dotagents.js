@@ -265,8 +265,17 @@ export function mcpFiles(opts, directory) {
   const dir = opts.dir ?? ".agents"
   const file = opts.mcpFile ?? "mcp.json"
   const files = [join(globalDir, file), join(directory, dir, file)]
+  const cwd = process.cwd()
   if (Array.isArray(opts.files))
-    for (const f of opts.files) files.push(isAbsolute(f) ? f : resolve(directory, f))
+    for (const f of opts.files) {
+      if (isAbsolute(f)) {
+        files.push(f)
+      } else {
+        // try cwd first (natural for npm scripts / manual CLI invocations), fall back to the project dir
+        const byCwd = resolve(cwd, f)
+        files.push(existsSync(byCwd) ? byCwd : resolve(directory, f))
+      }
+    }
   return files
 }
 

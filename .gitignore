@@ -6,3 +6,12 @@ Thumbs.db
 .env
 .env.*
 coverage/
+
+# Temp / editor / build
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+dist/
+build/
